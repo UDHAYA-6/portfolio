@@ -5,7 +5,16 @@ const Main = () => {
   return (
     <>
       <div className={classes.content}>
-        <div className={classes.image}>some content</div>
+        <div className={classes.image}>
+          <img alt="Profile picture" />
+          <div>
+            <ul>
+              <li>L</li>
+              <li>I</li>
+              <li>T</li>
+            </ul>
+          </div>
+        </div>
         <div className={classes.body}>
           <p>
             When you develop a mockup page or backend API is not ready for data

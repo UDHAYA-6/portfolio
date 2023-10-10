@@ -17,3 +17,22 @@
   display: flex;
   align-items: center;
 }
+
+.image {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.image img {
+  height: 17rem;
+  width: 17rem;
+  border-radius: 50%;
+  align-self: center;
+  box-shadow: 2px 2px 20px rgb(0, 0, 0);
+}
+
+.image ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+}
