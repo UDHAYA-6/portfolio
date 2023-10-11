@@ -1,7 +1,15 @@
-import React from "react";
 import classes from "./header.module.css";
-import Link from "next/link";
+import { FaSun, FaMoon } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { change } from "../../store/themeSlice";
 const Header = () => {
+  const dispatch = useDispatch();
+
+  const darktheme = useSelector((state) => state.theme.themedark);
+  const themeClicked = () => {
+    dispatch(change());
+  };
+
   return (
     <header className={classes.nav}>
       <div>
@@ -10,16 +18,23 @@ const Header = () => {
       <div>
         <ul>
           <li>
-            <Link href="/">About</Link>
+            <a href="/">About</a>
           </li>
           <li>
-            <Link href="/">Contact</Link>
+            <a href="/">Contact</a>
           </li>
           <li>
-            <Link href="/">Projects</Link>
+            <a href="/">Projects</a>
           </li>
           <li>
-            <Link href="/">Media</Link>
+            <a href="/">Media</a>
+          </li>
+          <li>
+            <div>
+              <a onClick={themeClicked}>
+                <FaSun />
+              </a>
+            </div>
           </li>
         </ul>
       </div>

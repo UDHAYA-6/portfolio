@@ -1,9 +1,11 @@
 .nav {
-  margin: 0%;
   display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
   justify-content: space-around;
   align-items: baseline;
-  align-content: center;
+  background-color: rgb(25, 58, 88);
 }
 
 .nav ul {
@@ -17,7 +19,6 @@
   padding: 0%;
 }
 .nav li {
-  display: block;
   padding: 1%;
   margin-right: 1rem;
   font-size: 1.1rem;
@@ -30,7 +31,7 @@
 }
 
 .nav ul li a {
-  color: black;
+  color: rgb(210, 210, 210);
   text-decoration: none;
   font-family: "Courier New", Courier, monospace;
 }

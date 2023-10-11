@@ -1,17 +1,39 @@
 import classes from "./Main.module.css";
 import React from "react";
-
+import { FaLinkedin, FaTwitter, FaGithub, FaDiscord } from "react-icons/fa";
+import Project from "../Projects/Pro";
 const Main = () => {
   return (
-    <>
+    <div className={classes.mains}>
       <div className={classes.content}>
         <div className={classes.image}>
-          <img alt="Profile picture" />
+          <img
+            alt="Profile picture"
+            src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFsZXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
+          />
           <div>
             <ul>
-              <li>L</li>
-              <li>I</li>
-              <li>T</li>
+              <li className={classes.link}>
+                <a href="/">
+                  <FaLinkedin />
+                </a>
+              </li>
+
+              <li className={classes.twitter}>
+                <a href="/">
+                  <FaTwitter />
+                </a>
+              </li>
+              <li className={classes.github}>
+                <a href="https://github.com/UDHAYA-6" target="_blank">
+                  <FaGithub />
+                </a>
+              </li>
+              <li className={classes.discord}>
+                <a href="/">
+                  <FaDiscord />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -27,7 +49,8 @@ const Main = () => {
           </p>
         </div>
       </div>
-    </>
+      <Project />
+    </div>
   );
 };
 
