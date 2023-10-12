@@ -92,11 +92,11 @@
 @media (max-width: 400px) {
   .image,
   .body {
-    width: 250px;
+    width: 270px;
   }
   .body {
     padding: 1px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-family: "Times New Roman", Times, serif;
   }
   .image {
