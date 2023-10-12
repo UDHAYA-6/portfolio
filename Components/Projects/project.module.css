@@ -79,21 +79,21 @@
     margin: 1rem;
   }
   .item {
-    height: 12rem;
-    width: 11rem;
+    height: 15rem;
+    width: 13rem;
   }
   .img {
-    width: 11rem;
-    height: 5rem;
+    width: 13rem;
+    height: 6rem;
   }
   .title {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .desc {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .dark {
-    box-shadow: 1px 1px 10px rgb(187, 2, 2);
+    box-shadow: 1px 1px 4px rgb(114, 3, 3);
   }
 
   .light {
