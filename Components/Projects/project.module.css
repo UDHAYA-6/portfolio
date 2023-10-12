@@ -55,6 +55,7 @@
 .desc,
 .img {
   margin: 0%;
+  text-align: justify;
 }
 
 .img {
