@@ -1,6 +1,6 @@
 .mains {
   width: 100%;
-  margin-top: 10px;
+  padding-top: 1rem;
 }
 
 .content {
@@ -40,16 +40,12 @@
 }
 
 .image li {
-  background-color: rgb(0, 0, 0);
   width: 1.5rem;
   margin-left: -0.4rem;
   height: 1.5rem;
   padding: 0.4rem;
   border-radius: 50%;
   transition: 1s;
-}
-.image a {
-  color: rgb(245, 245, 244);
 }
 
 .image li {
@@ -61,8 +57,61 @@
 }
 
 .image li:hover {
-  background-color: rgb(46, 112, 90);
   border-radius: 20%;
   box-shadow: 2px 2px 5px black;
   transition: 0.5s;
+}
+
+.light .image li:hover {
+  background-color: rgb(7, 0, 7);
+}
+.light .image li {
+  background-color: rgb(255, 255, 255);
+}
+.light .image a {
+  color: rgb(37, 150, 250);
+}
+
+.light .body {
+  color: black;
+}
+
+.dark .body {
+  color: white;
+}
+.dark .image li:hover {
+  background-color: rgb(255, 255, 255);
+}
+.dark .image li {
+  background-color: rgb(0, 0, 0);
+}
+.dark .image a {
+  color: rgb(37, 150, 250);
+}
+
+@media (max-width: 400px) {
+  .image,
+  .body {
+    width: 240px;
+    font-size: 0.5rem;
+  }
+  .body {
+    padding: 2px;
+  }
+  .content {
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    align-content: center;
+  }
+  .image img {
+    width: 10rem;
+    height: 10rem;
+  }
+  .image li {
+    width: 1rem;
+    margin-left: -0.9rem;
+    height: 1rem;
+    padding: 0.2rem;
+  }
 }

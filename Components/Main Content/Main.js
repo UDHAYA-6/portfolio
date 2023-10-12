@@ -1,10 +1,17 @@
 import classes from "./Main.module.css";
 import React from "react";
+import { useSelector } from "react-redux";
 import { FaLinkedin, FaTwitter, FaGithub, FaDiscord } from "react-icons/fa";
-import Project from "../Projects/Pro";
 const Main = () => {
+  const theme = useSelector((state) => state.theme.themedark);
   return (
-    <div className={classes.mains}>
+    <div
+      className={
+        theme
+          ? `${classes.mains} ${classes.dark}`
+          : `${classes.mains} ${classes.light}`
+      }
+    >
       <div className={classes.content}>
         <div className={classes.image}>
           <img
@@ -49,7 +56,6 @@ const Main = () => {
           </p>
         </div>
       </div>
-      <Project />
     </div>
   );
 };

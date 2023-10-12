@@ -5,10 +5,18 @@
   justify-content: space-evenly;
 }
 
-.heading {
+.darkhead {
   font-family: "Courier New", Courier, monospace;
   text-decoration: underline;
   margin-top: 3rem;
+  color: white;
+}
+
+.lighthead {
+  font-family: "Courier New", Courier, monospace;
+  text-decoration: underline;
+  margin-top: 3rem;
+  color: black;
 }
 
 .item {
@@ -18,12 +26,31 @@
   width: 14rem;
   margin: 1rem;
   border-radius: 1rem;
-  background-color: rgb(29, 37, 37);
-  box-shadow: 2px 2px 50px rgb(187, 2, 2);
   grid-template-columns: 1fr;
   grid-template-rows: 3fr 1fr 3fr;
 }
 
+.dark {
+  background-color: rgb(29, 37, 37);
+  box-shadow: 2px 2px 50px rgb(187, 2, 2);
+  color: white;
+}
+
+.light .title {
+  color: rgb(7, 92, 45);
+  border-bottom: 1px solid rgb(141, 2, 2);
+}
+
+.dark .title {
+  color: rgb(113, 172, 211);
+  border-bottom: 1px solid rgb(134, 20, 20);
+}
+
+.light {
+  background-color: rgb(235, 235, 235);
+  box-shadow: 2px 2px 50px rgb(0, 0, 0);
+  color: black;
+}
 .title,
 .desc,
 .img {
@@ -37,10 +64,39 @@
 }
 .title {
   font-size: 1.4rem;
-  border-bottom: 1px solid rgb(121, 94, 94);
+
   text-decoration: underline;
 }
 
 .desc {
   overflow: hidden;
+}
+
+@media (max-width: 400px) {
+  .darkhead,
+  .lighthead {
+    font-size: 1rem;
+    margin: 1rem;
+  }
+  .item {
+    height: 11rem;
+    width: 9rem;
+  }
+  .img {
+    width: 9rem;
+    height: 5rem;
+  }
+  .title {
+    font-size: 1rem;
+  }
+  .desc {
+    font-size: 0.7rem;
+  }
+  .dark {
+    box-shadow: 1px 1px 25px rgb(187, 2, 2);
+  }
+
+  .light {
+    box-shadow: 1px 1px 25px rgb(0, 0, 0);
+  }
 }

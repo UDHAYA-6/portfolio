@@ -1,0 +1,154 @@
+.container {
+  height: fit-content;
+  display: flex;
+  margin-top: 3rem;
+  align-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.dark {
+  background-color: black;
+}
+.light {
+  background-color: rgb(156, 123, 80);
+}
+.container form {
+  width: fit-content;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-right: 2px solid gray;
+}
+
+.container form div {
+  padding: 0.2rem;
+}
+
+.container input {
+  width: 70%;
+  height: 1.3rem;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+}
+
+.container textarea {
+  font-size: 1rem;
+  border-radius: 0.3rem;
+}
+
+.btn {
+  width: 25%;
+  height: 2rem;
+  border: none;
+  border-radius: 10%;
+  font-size: 1.1rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  align-self: center;
+}
+
+.footer p {
+  margin: 0%;
+  padding: 0%;
+}
+
+.light input {
+  background-color: rgb(189, 220, 248);
+}
+
+.light textarea {
+  background-color: rgb(189, 220, 248);
+}
+
+.light .btn {
+  background-color: rgb(200, 233, 139);
+  color: black;
+}
+
+.dark input {
+  background-color: rgb(104, 51, 42);
+  color: white;
+}
+
+.dark textarea {
+  background-color: rgb(104, 51, 42);
+  color: white;
+}
+
+.dark .btn {
+  background-color: rgb(4, 81, 87);
+  color: white;
+}
+
+.light .footer {
+  color: black;
+}
+
+.dark .footer {
+  color: white;
+}
+
+@media (max-width: 400px) {
+  .container {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .container form {
+    margin: 0%;
+    padding: 0%;
+    align-self: center;
+    border-bottom: 1px solid black;
+    border-right: none;
+  }
+
+  .container form div {
+    padding: 1px;
+  }
+
+  .container input {
+    width: 70%;
+    height: 1rem;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+  }
+
+  .container textarea {
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+  }
+  .btn {
+    width: 25%;
+    height: 1.1rem;
+    border-radius: 6%;
+    font-size: 0.8rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-self: center;
+  }
+  .footer h1 {
+    font-size: 1.5rem;
+  }
+  .footer p {
+    font-size: 0.6rem;
+  }
+  .footer .para {
+    align-self: center;
+  }
+}

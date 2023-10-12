@@ -2,25 +2,4 @@ body {
   margin: 0%;
   color: rgb(210, 210, 210);
   height: 100%;
-  background-color: rgb(18, 53, 53);
-  /* padding: 0%; */
-  /* display: grid; */
-  /* grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr; */
-  /* grid-template-areas:
-    "header"
-    "main"
-    "footer"; */
 }
-
-/* .main {
-  grid-area: main;
-}
-
-.footer {
-  grid-area: footer;
-}
-
-.header {
-  grid-area: header;
-} */
