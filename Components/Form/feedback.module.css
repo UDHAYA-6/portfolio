@@ -107,11 +107,12 @@
     align-content: center;
   }
   .container form {
-    margin: 0%;
+    /* margin: 0%;
     padding: 0%;
     align-self: center;
     border-bottom: 1px solid black;
-    border-right: none;
+    border-right: none; */
+    display: none;
   }
 
   .container form div {
@@ -149,6 +150,7 @@
     font-size: 0.6rem;
   }
   .footer .para {
-    align-self: center;
+    /* align-self: center; */
+    display: none;
   }
 }

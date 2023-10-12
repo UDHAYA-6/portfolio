@@ -75,28 +75,28 @@
 @media (max-width: 400px) {
   .darkhead,
   .lighthead {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 1rem;
   }
   .item {
-    height: 11rem;
-    width: 9rem;
+    height: 12rem;
+    width: 11rem;
   }
   .img {
-    width: 9rem;
+    width: 11rem;
     height: 5rem;
   }
   .title {
     font-size: 1rem;
   }
   .desc {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .dark {
-    box-shadow: 1px 1px 25px rgb(187, 2, 2);
+    box-shadow: 1px 1px 10px rgb(187, 2, 2);
   }
 
   .light {
-    box-shadow: 1px 1px 25px rgb(0, 0, 0);
+    box-shadow: 1px 1px 10px rgb(0, 0, 0);
   }
 }

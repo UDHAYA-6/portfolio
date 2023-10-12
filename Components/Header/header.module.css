@@ -26,6 +26,9 @@
   font-size: 2rem;
   margin: 0%;
   padding: 0%;
+  top: 0;
+
+  position: absolute;
 }
 
 .light p {
@@ -75,10 +78,12 @@
   right: 0;
   top: 0;
   font-size: 1.2rem;
+  width: 1.2rem;
   background-color: black;
 }
 .mobile {
   overflow: hidden;
+  background-color: white;
 }
 @media (max-width: 400px) {
   .desktop {
