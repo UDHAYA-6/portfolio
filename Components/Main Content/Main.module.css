@@ -111,6 +111,7 @@
   .image img {
     width: 14rem;
     height: 14rem;
+    box-shadow: 1px 1px 5px black;
   }
   .image li {
     width: 1.8rem;

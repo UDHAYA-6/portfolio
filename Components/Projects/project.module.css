@@ -93,10 +93,10 @@
     font-size: 0.9rem;
   }
   .dark {
-    box-shadow: 1px 1px 4px rgb(114, 3, 3);
+    box-shadow: none;
   }
 
   .light {
-    box-shadow: 1px 1px 10px rgb(0, 0, 0);
+    box-shadow: none;
   }
 }
