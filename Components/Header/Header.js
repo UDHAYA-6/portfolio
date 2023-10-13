@@ -1,5 +1,5 @@
 import classes from "./header.module.css";
-import { FaSun, FaMoon, FaBars } from "react-icons/fa";
+import { FaSun, FaMoon, FaBars, FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { change } from "../../store/themeSlice";
 import { useEffect, useState } from "react";
@@ -44,15 +44,19 @@ const Header = () => {
       }
     >
       <div>
-        <p>Name</p>
+        <p>UDHAYA {"  "} KUMAR</p>
       </div>
       <div className={classes.desktop}>
         <ul>
           <li>
-            <a onClick={() => scrollToSection("home")}>Home</a>
+            <a onClick={() => scrollToSection("home")}>
+              <span>
+                <FaHome />
+              </span>
+            </a>
           </li>
           <li>
-            <a href="/">Contact</a>
+            <a onClick={() => scrollToSection("education")}>Education</a>
           </li>
           <li>
             <a onClick={() => scrollToSection("projects")}>Projects</a>

@@ -1,7 +1,7 @@
 import classes from "./Main.module.css";
 import React from "react";
 import { useSelector } from "react-redux";
-import { FaLinkedin, FaTwitter, FaGithub, FaDiscord } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
 const Main = () => {
   const theme = useSelector((state) => state.theme.themedark);
   return (
@@ -21,14 +21,17 @@ const Main = () => {
           <div>
             <ul>
               <li className={classes.link}>
-                <a href="/">
+                <a
+                  href="https://www.linkedin.com/in/udhaya-kumar-developer/"
+                  target="_blank"
+                >
                   <FaLinkedin />
                 </a>
               </li>
 
               <li className={classes.twitter}>
-                <a href="/">
-                  <FaTwitter />
+                <a href="mailto:udhaya642003@gmail.com" target="_blank">
+                  <FaEnvelope />
                 </a>
               </li>
               <li className={classes.github}>
@@ -37,8 +40,11 @@ const Main = () => {
                 </a>
               </li>
               <li className={classes.discord}>
-                <a href="/">
-                  <FaDiscord />
+                <a
+                  href="https://instagram.com/udhay_kumar_official?igshidOGQ5ZDc2ODk2ZA=="
+                  target="_blank"
+                >
+                  <FaInstagram />
                 </a>
               </li>
             </ul>
@@ -46,13 +52,13 @@ const Main = () => {
         </div>
         <div className={classes.body}>
           <p>
-            When you develop a mockup page or backend API is not ready for data
-            fetching and you have to make Frontend Development with static data
-            until it comes, react-lorem-ipsum will create your gibberish texts
-            for you. In addition to Lorem Ipsum text, you can generate random
-            avatars, names, surnames, full names and usernames to fill the
-            fields about users randomly. 👍 React Lorem Ipsum is a
-            zero-dependency, easy-to-use package.
+            <h3 className={classes.hello}>Hello!</h3>
+            <p className={classes.first}>I'm Udhaya Kumar,</p> an enthusiastic
+            and driven final-year engineering student that is excited to start a
+            path that combines theoretical knowledge with real-world experience.
+            My educational background and experiences have given me a solid
+            foundation in engineering concepts, problem-solving abilities, and a
+            desire to learn more.
           </p>
         </div>
       </div>

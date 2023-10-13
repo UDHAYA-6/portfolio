@@ -5,6 +5,8 @@ import Main from "@/Components/Main Content/Main";
 import Project from "@/Components/Projects/Pro";
 import { useSelector } from "react-redux";
 import Feedback from "@/Components/Form/feedback";
+import Education from "@/Components/Qualifications/eduaction";
+import Internship from "@/Components/Qualifications/internship";
 const index = () => {
   const theme = useSelector((state) => state.theme.themedark);
   return (
@@ -14,6 +16,10 @@ const index = () => {
       </section>
       <section className="main" id="home">
         <Main />
+      </section>
+      <section id="education">
+        <Education />
+        <Internship />
       </section>
       <section id="projects">
         <Project />

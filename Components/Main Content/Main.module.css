@@ -2,11 +2,25 @@
   width: 100%;
   padding-top: 1rem;
 }
-
+.first::first-letter {
+  font-size: 2rem;
+}
 .content {
   display: flex;
   margin-top: 5rem;
   justify-content: space-around;
+}
+
+.hello {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.light .hello {
+  color: blue;
+}
+
+.dark .hello {
+  color: rgb(2, 255, 242);
 }
 .image,
 .body {
