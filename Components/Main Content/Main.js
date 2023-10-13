@@ -51,7 +51,7 @@ const Main = () => {
           <p>
             <h3 className={classes.hello}>Hello!</h3>
             <p className={classes.first}>I'm Udhaya Kumar,</p> an enthusiastic
-            and driven final-year engineering student that is excited to start a
+            and driven final-year engineering student who is excited to start a
             path that combines theoretical knowledge with real-world experience.
             My educational background and experiences have given me a solid
             foundation in engineering concepts, problem-solving abilities, and a
