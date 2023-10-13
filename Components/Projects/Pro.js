@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./project.module.css";
 import { useSelector } from "react-redux";
-import Image from "next/image";
 const Project = () => {
   const theme = useSelector((state) => state.theme.themedark);
   return (

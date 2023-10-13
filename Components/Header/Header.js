@@ -111,7 +111,7 @@ const Header = () => {
           </a>
           <a
             onClick={() => {
-              scrollToSection("Projects");
+              scrollToSection("projects");
               closeMobileMenu();
             }}
           >
