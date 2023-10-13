@@ -70,14 +70,13 @@
 .mobile .icon {
   display: block;
   position: absolute;
-  color: rgb(147, 185, 190);
-  right: 0;
-  top: 0;
+  color: rgb(255, 255, 255);
+  right: 10px;
+  top: 5px;
   font-size: 1.5rem;
   margin: 0%;
   padding: 0%;
   width: 1.2rem;
-  background-color: black;
 }
 .mobile {
   overflow: hidden;
