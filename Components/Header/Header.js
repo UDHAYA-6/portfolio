@@ -1,31 +1,49 @@
+import React, { useState, useEffect, useRef } from "react";
 import classes from "./header.module.css";
 import { FaSun, FaMoon, FaBars, FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { change } from "../../store/themeSlice";
-import { useEffect, useState } from "react";
+
 const Header = () => {
   const [mode, setMode] = useState(<FaSun />);
   const theme = useSelector((state) => state.theme.themedark);
-  console.log(theme);
   const dispatch = useDispatch();
+
+  const mobileMenuRef = useRef(null);
+
   const themeClicked = () => {
     dispatch(change());
   };
-  function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
+
+  function toggleMobileMenu() {
+    const mobileMenu = mobileMenuRef.current;
+    if (mobileMenu.style.display === "block") {
+      mobileMenu.style.display = "none";
     } else {
-      x.style.display = "block";
+      mobileMenu.style.display = "block";
     }
   }
+
+  const closeMobileMenu = () => {
+    mobileMenuRef.current.style.display = "none";
+  };
   useEffect(() => {
-    if (theme) {
-      setMode(<FaSun />);
-    } else {
-      setMode(<FaMoon />);
+    function handleClickOutside(event) {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        mobileMenuRef.current.style.display = "none";
+      }
     }
-  }, [theme]);
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -33,8 +51,10 @@ const Header = () => {
         behavior: "smooth",
         block: "start",
       });
+      mobileMenuRef.current.style.display = "none";
     }
   };
+
   return (
     <header
       className={
@@ -72,19 +92,52 @@ const Header = () => {
         </ul>
       </div>
       <div className={classes.mobile}>
-        <div className={classes.mobilemenu} id="myLinks">
-          <a onClick={() => scrollToSection("home")}>Home</a>
-
-          <a onClick={() => scrollToSection("Projects")}>Projects</a>
-
-          <a onClick={() => scrollToSection("feedback")}>feedback</a>
-
-          <a onClick={themeClicked}>{mode}</a>
+        <div className={classes.mobilemenu} id="myLinks" ref={mobileMenuRef}>
+          <a
+            onClick={() => {
+              scrollToSection("home");
+              closeMobileMenu();
+            }}
+          >
+            Home
+          </a>
+          <a
+            onClick={() => {
+              scrollToSection("education");
+              closeMobileMenu();
+            }}
+          >
+            Education
+          </a>
+          <a
+            onClick={() => {
+              scrollToSection("Projects");
+              closeMobileMenu();
+            }}
+          >
+            Projects
+          </a>
+          <a
+            onClick={() => {
+              scrollToSection("feedback");
+              closeMobileMenu();
+            }}
+          >
+            feedback
+          </a>
+          <a
+            onClick={() => {
+              themeClicked();
+              closeMobileMenu();
+            }}
+          >
+            {mode}
+          </a>
         </div>
         <a
           href="javascript:void(0);"
           className={classes.icon}
-          onClick={myFunction}
+          onClick={toggleMobileMenu}
         >
           <FaBars />
         </a>
