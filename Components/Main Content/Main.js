@@ -2,8 +2,10 @@ import classes from "./Main.module.css";
 import React from "react";
 import { useSelector } from "react-redux";
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
+
 const Main = () => {
   const theme = useSelector((state) => state.theme.themedark);
+
   return (
     <div
       className={
@@ -25,7 +27,6 @@ const Main = () => {
                   <FaLinkedin />
                 </a>
               </li>
-
               <li className={classes.twitter}>
                 <a href="mailto:udhaya642003@gmail.com" target="_blank">
                   <FaEnvelope />
@@ -48,15 +49,15 @@ const Main = () => {
           </div>
         </div>
         <div className={classes.body}>
-          <p>
+          <div>
             <h3 className={classes.hello}>Hello!</h3>
-            <p className={classes.first}>I'm Udhaya Kumar,</p> an enthusiastic
-            and driven final-year engineering student who is excited to start a
-            path that combines theoretical knowledge with real-world experience.
-            My educational background and experiences have given me a solid
-            foundation in engineering concepts, problem-solving abilities, and a
-            desire to learn more.
-          </p>
+            <p className={classes.first}>I'm Udhaya Kumar,</p>
+            an enthusiastic and driven final-year engineering student who is
+            excited to start a path that combines theoretical knowledge with
+            real-world experience. My educational background and experiences
+            have given me a solid foundation in engineering concepts,
+            problem-solving abilities, and a desire to learn more.
+          </div>
         </div>
       </div>
     </div>

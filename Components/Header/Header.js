@@ -27,6 +27,7 @@ const Header = () => {
   const closeMobileMenu = () => {
     mobileMenuRef.current.style.display = "none";
   };
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -51,7 +52,7 @@ const Header = () => {
         behavior: "smooth",
         block: "start",
       });
-      mobileMenuRef.current.style.display = "none";
+      closeMobileMenu();
     }
   };
 
@@ -69,20 +70,26 @@ const Header = () => {
       <div className={classes.desktop}>
         <ul>
           <li>
-            <a onClick={() => scrollToSection("home")}>
+            <a onClick={() => scrollToSection("home")} href="#">
               <span>
                 <FaHome />
               </span>
             </a>
           </li>
           <li>
-            <a onClick={() => scrollToSection("education")}>Education</a>
+            <a onClick={() => scrollToSection("education")} href="#">
+              Education
+            </a>
           </li>
           <li>
-            <a onClick={() => scrollToSection("projects")}>Projects</a>
+            <a onClick={() => scrollToSection("projects")} href="#">
+              Projects
+            </a>
           </li>
           <li>
-            <a onClick={() => scrollToSection("feedback")}>Feedback</a>
+            <a onClick={() => scrollToSection("feedback")} href="#">
+              Feedback
+            </a>
           </li>
           <li>
             <div>
@@ -98,6 +105,7 @@ const Header = () => {
               scrollToSection("home");
               closeMobileMenu();
             }}
+            href="#"
           >
             Home
           </a>
@@ -106,6 +114,7 @@ const Header = () => {
               scrollToSection("education");
               closeMobileMenu();
             }}
+            href="#"
           >
             Education
           </a>
@@ -114,6 +123,7 @@ const Header = () => {
               scrollToSection("projects");
               closeMobileMenu();
             }}
+            href="#"
           >
             Projects
           </a>
@@ -122,23 +132,21 @@ const Header = () => {
               scrollToSection("feedback");
               closeMobileMenu();
             }}
+            href="#"
           >
-            feedback
+            Feedback
           </a>
           <a
             onClick={() => {
               themeClicked();
               closeMobileMenu();
             }}
+            href="#"
           >
             {mode}
           </a>
         </div>
-        <a
-          href="javascript:void(0);"
-          className={classes.icon}
-          onClick={toggleMobileMenu}
-        >
+        <a className={classes.icon} onClick={toggleMobileMenu}>
           <FaBars />
         </a>
       </div>
