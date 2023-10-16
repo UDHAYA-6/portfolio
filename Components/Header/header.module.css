@@ -10,7 +10,7 @@
   display: none;
 }
 .dark {
-  background-color: rgb(3, 77, 95);
+  background-color: teal;
 }
 
 .light {
@@ -106,7 +106,7 @@
   overflow: hidden;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 550px) {
   .desktop {
     display: none;
   }

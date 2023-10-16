@@ -26,7 +26,7 @@ const Internship = () => {
         </p>
       </div>
       <div className={classes.idp}>
-        <img src="/idp.png" className={classes.idp} />
+        <img src="/idp.png" className={classes.idp1} />
       </div>
     </div>
   );
