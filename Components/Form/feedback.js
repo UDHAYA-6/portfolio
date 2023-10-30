@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useSWR from "swr";
 import classes from "./feedback.module.css";
 import { useSelector } from "react-redux";
 const Feedback = () => {
+  const [Data, setData] = useState("");
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const { data, error, isLoading } = useSWR("/api/data", fetcher);
+
+  useEffect(() => {
+    if (data) {
+      setData(data[0].Feedback);
+    }
+    if (error) {
+      alert("Error while fetching", error);
+    }
+  }, [data]);
+
   const theme = useSelector((state) => state.theme.themedark);
   return (
     <div
@@ -11,11 +25,7 @@ const Feedback = () => {
           : `${classes.container} ${classes.light}`
       }
     >
-      <p>
-        Thank you for taking the time to learn more about me, and I'm excited to
-        connect and collaborate with professionals who share my enthusiasm for
-        engineering excellence.
-      </p>
+      <p>{Data}</p>
     </div>
   );
 };

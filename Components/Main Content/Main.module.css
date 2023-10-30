@@ -95,7 +95,7 @@
   color: white;
 }
 .dark .image li:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(116, 4, 4);
 }
 .dark .image li {
   background-color: rgb(7, 100, 30);

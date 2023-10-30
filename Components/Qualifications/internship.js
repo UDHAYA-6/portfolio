@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./intern.module.css";
 import { FaBriefcase } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import useSWR from "swr";
 const Internship = () => {
+  const [Data, setData] = useState("");
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const { data, error, isLoading } = useSWR("/api/data", fetcher);
+
+  useEffect(() => {
+    if (data) {
+      setData(data[0].Internship);
+    }
+    if (error) {
+      alert("Error while fetching", error);
+    }
+  }, [data]);
+
   const theme = useSelector((state) => state.theme.themedark);
   return (
     <div
@@ -16,14 +30,7 @@ const Internship = () => {
         <h1>
           Professional Experience <FaBriefcase />
         </h1>
-        <p className={classes.para}>
-          I am delighted to have been granted an internship with IDP, a
-          well-known industry leader in IELTS. This one-year internship will run
-          concurrently with my final year of study and will serve as the ideal
-          link between academics and the professional world. I am eager to learn
-          from IDP's outstanding employees, apply my theoretical knowledge to
-          real-world issues, and contribute to the company's success.
-        </p>
+        <p className={classes.para}>{Data}</p>
       </div>
       <div className={classes.idp}>
         <img src="/idp.png" className={classes.idp1} />

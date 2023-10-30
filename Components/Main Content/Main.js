@@ -1,9 +1,22 @@
 import classes from "./Main.module.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
-
+import useSWR from "swr";
 const Main = () => {
+  const [Data, setData] = useState("");
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const { data, error, isLoading } = useSWR("/api/data", fetcher);
+
+  useEffect(() => {
+    if (data) {
+      setData(data[0].About_me);
+    }
+    if (error) {
+      alert("Error while fetching", error);
+    }
+  }, [data]);
+
   const theme = useSelector((state) => state.theme.themedark);
 
   return (
@@ -52,11 +65,7 @@ const Main = () => {
           <div>
             <h3 className={classes.hello}>Hello!</h3>
             <p className={classes.first}>I'm Udhaya Kumar,</p>
-            an enthusiastic and driven final-year engineering student who is
-            excited to start a path that combines theoretical knowledge with
-            real-world experience. My educational background and experiences
-            have given me a solid foundation in engineering concepts,
-            problem-solving abilities, and a desire to learn more.
+            {Data}
           </div>
         </div>
       </div>

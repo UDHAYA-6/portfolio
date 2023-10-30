@@ -1,0 +1,63 @@
+.nav {
+  background-color: rgb(3, 29, 109);
+  display: flex;
+  height: 1.9rem;
+  color: white;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.div {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 0.9fr 10fr;
+  grid-template-rows: 0.5fr 10fr;
+  grid-template-areas: "nav nav" "side body";
+}
+
+.side {
+  grid-area: side;
+  position: fixed;
+  top: 30px;
+  height: 100vh;
+  background-color: rgb(196, 234, 236);
+  display: flex;
+  flex-direction: column;
+}
+.nav {
+  grid-area: nav;
+  position: fixed;
+  width: 100%;
+}
+.body {
+  grid-area: body;
+}
+
+.side span {
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 0.4rem 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.side span:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.logout {
+  font-size: 1rem;
+  color: white;
+  border-radius: 12px;
+  border: 1px solid white;
+  background-color: transparent;
+  margin-right: 1rem;
+}
+
+.logout:hover {
+  cursor: pointer;
+  background-color: bisque;
+  color: black;
+}
