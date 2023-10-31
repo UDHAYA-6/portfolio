@@ -36,7 +36,7 @@ const Project = () => {
           >
             <img
               alt="image"
-              src="https://www.usnews.com/object/image/0000017e-8d03-de57-a57e-bdb7a7310000/istock-1127637966.jpg?update-time=1643043407037&size=responsive640"
+              src="http0"
               className={classes.img}
             />
             <p className={classes.title}>{item.Title}</p>
