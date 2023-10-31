@@ -20,7 +20,6 @@ const Page1 = () => {
     Footer: false,
   });
   const logOut = async () => {
-    router.replace("/");
     await signOut();
   };
 

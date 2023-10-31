@@ -1,10 +1,28 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import classes from "./admin.module.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
 const Admin = () => {
   const router = useRouter();
+
+  const [rout, setRoute] = useState(true);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    const checkSession = async () => {
+      const userSession = await getSession();
+
+      if (rout && userSession) {
+        router.replace("/Adminpannel");
+        setRoute(false);
+      }
+    };
+
+    checkSession();
+  }, [session]);
+
   const [show, setShow] = useState(false);
   const visiblity = () => {
     setShow(!show);

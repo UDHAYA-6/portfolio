@@ -11,7 +11,7 @@ const Adminpannel = () => {
     const checkSession = async () => {
       const userSession = await getSession();
       if (!userSession) {
-        router.push("/admin");
+        router.push("/admin", undefined, { shallow: true });
       }
     };
 
