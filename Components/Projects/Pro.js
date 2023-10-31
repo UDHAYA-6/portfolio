@@ -34,11 +34,7 @@ const Project = () => {
                 : `${classes.item} ${classes.light}`
             }
           >
-            <img
-              alt="image"
-              src="http0"
-              className={classes.img}
-            />
+            <img alt="image" src="/project.png" className={classes.img} />
             <p className={classes.title}>{item.Title}</p>
             <p className={classes.desc}>{item.Desc}</p>
           </div>
