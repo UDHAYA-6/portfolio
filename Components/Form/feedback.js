@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./feedback.module.css";
 import { useSelector } from "react-redux";
-const Feedback = () => {
+const Feedback = (props) => {
   const [Data, setData] = useState("");
 
   useEffect(() => {
@@ -28,9 +28,10 @@ const Feedback = () => {
           : `${classes.container} ${classes.light}`
       }
     >
-      <p>{Data}</p>
+      <p>{props.Foot}</p>
     </div>
   );
 };
 
+export async function getStaticProps() {}
 export default Feedback;

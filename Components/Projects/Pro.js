@@ -1,24 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./project.module.css";
 import { useSelector } from "react-redux";
-import { motion } from "framer-motion";
-const Project = () => {
-  const [Data, setData] = useState([]);
-
-  useEffect(() => {
-    async function myfunc() {
-      const response = await fetch("api/data", { method: "GET" });
-      const data = await response.json();
-
-      if (response.ok) {
-        setData(data[0].Projects);
-      }
-      if (!response.ok) {
-        alert("Error while fetching", error);
-      }
-    }
-    myfunc();
-  }, []);
+const Project = (Props) => {
   const theme = useSelector((state) => state.theme.themedark);
   return (
     <>
@@ -28,7 +11,7 @@ const Project = () => {
         </h1>
       </center>
       <div className={classes.project}>
-        {Data.map((item, index) => (
+        {Props.Pro.map((item, index) => (
           <div
             key={index + 1}
             className={

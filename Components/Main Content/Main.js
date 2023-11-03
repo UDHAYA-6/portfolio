@@ -3,25 +3,8 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
-const Main = () => {
-  const [Data, setData] = useState("No data is fetched");
-
-  useEffect(() => {
-    async function myfunc() {
-      const response = await fetch("api/data", { method: "GET" });
-      const data = await response.json();
-      if (response.ok) {
-        setData(data[0].About_me);
-      }
-      if (!response.ok) {
-        alert("Error while fetching", error);
-      }
-    }
-    myfunc();
-  }, []);
-
+const Main = (props) => {
   const theme = useSelector((state) => state.theme.themedark);
-
   return (
     <div
       className={
@@ -82,22 +65,21 @@ const Main = () => {
             </ul>
           </div>
         </div>
-
-        <div className={classes.body}>
-          <div className={classes.scrolling_words_container}>
-            <div class={classes.scrolling_words_box}>
-              <ul>
-                <li style={{ color: "green" }}>Dream</li>
-                <li style={{ color: "teal" }}>Believe</li>
-                <li style={{ color: "maroon" }}>Achieve</li>
-              </ul>
-            </div>
-            <span>it!</span>
+        <div className={classes.scrolling_words_container}>
+          <div class={classes.scrolling_words_box}>
+            <ul>
+              <li style={{ color: "green" }}>Dream</li>
+              <li style={{ color: "teal" }}>Believe</li>
+              <li style={{ color: "maroon" }}>Achieve</li>
+            </ul>
           </div>
+          <span style={{ color: "white" }}>it!</span>
+        </div>
+        <div className={classes.body}>
           <div>
             <p className={classes.first}>Udhaya Kumar</p>
 
-            {Data}
+            {props.about}
           </div>
         </div>
       </div>
