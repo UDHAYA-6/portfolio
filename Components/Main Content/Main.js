@@ -3,15 +3,14 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
-import MovingDiv from "../MovingDiv";
 const Main = () => {
-  const [Data, setData] = useState("");
+  const [Data, setData] = useState("No data is fetched");
 
   useEffect(() => {
     async function myfunc() {
       const response = await fetch("api/data", { method: "GET" });
+      const data = await response.json();
       if (response.ok) {
-        const data = await response.json();
         setData(data[0].About_me);
       }
       if (!response.ok) {
@@ -19,7 +18,7 @@ const Main = () => {
       }
     }
     myfunc();
-  }, [Data]);
+  }, []);
 
   const theme = useSelector((state) => state.theme.themedark);
 
@@ -31,17 +30,18 @@ const Main = () => {
           : `${classes.mains} ${classes.light}`
       }
     >
-      <motion.div
-        className={classes.content}
-        initial={{ y: 120, opacity: 1 }}
-        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1, type: "spring", bounce: 0.6 }}
-      >
+      <div className={classes.content}>
         <div className={classes.image}>
-          <img alt="Profile picture" src="/udhay.jpg" />
+          <motion.img
+            initial={{ scale: 0.2 }}
+            animate={{ rotateZ: 360, scale: 1 }}
+            transition={{ duration: 2, type: "spring", bounce: 0.6 }}
+            alt="Profile picture"
+            src="/udhay-min.jpg"
+          />
           <div>
             <ul>
-              <motion.li initial={{ x: 120, y: 60 }} animate={{ x: 0, y: 0 }}>
+              <motion.li initial={{ x: 120 }} animate={{ x: 0, y: 0 }}>
                 <a
                   href="https://www.linkedin.com/in/udhaya-kumar-developer/"
                   target="_blank"
@@ -50,7 +50,7 @@ const Main = () => {
                 </a>
               </motion.li>
               <motion.li
-                initial={{ x: 120, y: 60 }}
+                initial={{ x: 120 }}
                 animate={{ x: 0, y: 0 }}
                 className={classes.twitter}
               >
@@ -59,7 +59,7 @@ const Main = () => {
                 </a>
               </motion.li>
               <motion.li
-                initial={{ x: -120, y: -60 }}
+                initial={{ x: -120 }}
                 animate={{ x: 0, y: 0 }}
                 className={classes.github}
               >
@@ -68,7 +68,7 @@ const Main = () => {
                 </a>
               </motion.li>
               <motion.li
-                initial={{ x: -120, y: -60 }}
+                initial={{ x: -120 }}
                 animate={{ x: 0, y: 0 }}
                 className={classes.discord}
               >
@@ -84,13 +84,23 @@ const Main = () => {
         </div>
 
         <div className={classes.body}>
+          <div className={classes.scrolling_words_container}>
+            <div class={classes.scrolling_words_box}>
+              <ul>
+                <li style={{ color: "green" }}>Dream</li>
+                <li style={{ color: "teal" }}>Believe</li>
+                <li style={{ color: "maroon" }}>Achieve</li>
+              </ul>
+            </div>
+            <span>it!</span>
+          </div>
           <div>
-            <h3 className={classes.hello}>Hello!</h3>
-            <p className={classes.first}>I'm Udhaya Kumar,</p>
+            <p className={classes.first}>Udhaya Kumar</p>
+
             {Data}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

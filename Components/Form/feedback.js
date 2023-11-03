@@ -7,8 +7,9 @@ const Feedback = () => {
   useEffect(() => {
     async function myfunc() {
       const response = await fetch("api/data", { method: "GET" });
+      const data = await response.json();
+
       if (response.ok) {
-        const data = await response.json();
         setData(data[0].Feedback);
       }
       if (!response.ok) {
@@ -16,7 +17,7 @@ const Feedback = () => {
       }
     }
     myfunc();
-  }, [Data]);
+  }, []);
 
   const theme = useSelector((state) => state.theme.themedark);
   return (

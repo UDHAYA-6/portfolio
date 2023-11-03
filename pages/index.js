@@ -1,6 +1,8 @@
 import React from "react";
+
 import classes from "./index.module.css";
 import Header from "../Components/Header/Header";
+import { motion } from "framer-motion";
 import Main from "@/Components/Main Content/Main";
 import Project from "@/Components/Projects/Pro";
 import { useSelector } from "react-redux";
@@ -10,13 +12,20 @@ import Internship from "@/Components/Qualifications/internship";
 const index = () => {
   const theme = useSelector((state) => state.theme.themedark);
   return (
-    <div className={theme ? `${classes.dark}` : `${classes.light}`}>
+    <motion.div
+      className={theme ? `${classes.dark}` : `${classes.light}`}
+      initial={{ y: 200 }}
+      animate={{ y: 0, x: 0 }}
+      transition={{ duration: 5, type: "spring" }}
+    >
       <section className="header">
         <Header />
       </section>
+
       <section className="main" id="home">
         <Main />
       </section>
+
       <section id="education">
         <Education />
         <Internship />
@@ -28,7 +37,7 @@ const index = () => {
         <Feedback />
       </section>
       <footer className="footer"></footer>
-    </div>
+    </motion.div>
   );
 };
 

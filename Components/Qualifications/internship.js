@@ -9,8 +9,9 @@ const Internship = () => {
   useEffect(() => {
     async function myfunc() {
       const response = await fetch("api/data", { method: "GET" });
+      const data = await response.json();
+
       if (response.ok) {
-        const data = await response.json();
         setData(data[0].Internship);
       }
       if (!response.ok) {
@@ -18,11 +19,11 @@ const Internship = () => {
       }
     }
     myfunc();
-  }, [Data]);
+  }, []);
 
   const theme = useSelector((state) => state.theme.themedark);
   return (
-    <motion.div
+    <div
       initial={{ y: 120, opacity: 1 }}
       animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
       transition={{ duration: 1, type: "spring", bounce: 0.6 }}
@@ -41,7 +42,7 @@ const Internship = () => {
       <div className={classes.idp}>
         <img src="/idp.png" className={classes.idp1} />
       </div>
-    </motion.div>
+    </div>
   );
 };
 

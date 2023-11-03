@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import classes from "./education.module.css";
 import { FaUserGraduate } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -9,8 +9,9 @@ const Education = () => {
   useEffect(() => {
     async function myfunc() {
       const response = await fetch("api/data", { method: "GET" });
+      const data = await response.json();
+
       if (response.ok) {
-        const data = await response.json();
         setData(data[0].Education);
       }
       if (!response.ok) {
@@ -18,14 +19,10 @@ const Education = () => {
       }
     }
     myfunc();
-  }, [Data]);
-
+  }, []);
   const theme = useSelector((state) => state.theme.themedark);
   return (
-    <motion.div
-      initial={{ y: 120, opacity: 1 }}
-      animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-      transition={{ duration: 1, type: "spring", bounce: 0.6 }}
+    <div
       className={
         theme
           ? `${classes.div} ${classes.dark}`
@@ -38,7 +35,7 @@ const Education = () => {
       <div className={classes.paradiv}>
         <p className={classes.para}>{Data}</p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

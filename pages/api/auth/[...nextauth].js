@@ -1,4 +1,5 @@
 import NextAuth from "next-auth";
+import { genSalt, hash, compare } from "bcryptjs";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { ConnectToDatabase } from "@/Mongodb/mongodb";
 export default NextAuth({
@@ -18,9 +19,10 @@ export default NextAuth({
         const db = client.db("Portfolio");
         const user = await db.collection("Admin").findOne({
           Email: credentials.email,
-          Password: credentials.password,
         });
-        if (user) {
+        const isValid = await compare(credentials.password, user.Password);
+
+        if (isValid) {
           return Promise.resolve({ email: user.Email });
         } else {
           return Promise.resolve(null);
