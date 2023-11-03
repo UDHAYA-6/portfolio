@@ -9,8 +9,8 @@
 .dark .first {
   background-image: linear-gradient(
     to bottom,
-    rgb(175, 177, 58) 50%,
-    #ffffff 50%
+    rgb(58, 177, 167) 50%,
+    #972424 50%
   );
 }
 
