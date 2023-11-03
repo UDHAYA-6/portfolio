@@ -66,19 +66,18 @@ const Main = (props) => {
           </div>
         </div>
         <div className={classes.scrolling_words_container}>
-          <div class={classes.scrolling_words_box}>
+          <div className={classes.scrolling_words_box}>
             <ul>
               <li style={{ color: "green" }}>Dream</li>
               <li style={{ color: "teal" }}>Believe</li>
               <li style={{ color: "maroon" }}>Achieve</li>
             </ul>
           </div>
-          <span style={{ color: "white" }}>it!</span>
+          <div style={{ color: "white" }}>it!</div>
         </div>
         <div className={classes.body}>
           <div>
             <p className={classes.first}>Udhaya Kumar</p>
-
             {props.about}
           </div>
         </div>
