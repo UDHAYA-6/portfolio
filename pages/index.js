@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import classes from "./index.module.css";
 import Header from "../Components/Header/Header";
-import { motion } from "framer-motion";
 import Main from "@/Components/Main Content/Main";
 import Project from "@/Components/Projects/Pro";
 import { useSelector } from "react-redux";
 import Feedback from "@/Components/Form/feedback";
 import Education from "@/Components/Qualifications/eduaction";
-import Internship from "@/Components/Qualifications/internship";
 const index = () => {
-  const [Data, setData] = useState("No data is fetched");
+  const [Data, setData] = useState("");
   const [Pro, setPro] = useState([]);
   useEffect(() => {
     async function myfunc() {
@@ -17,7 +15,8 @@ const index = () => {
       const data = await response.json();
       if (response.ok) {
         setPro(data[0].Projects);
-        setData(data[0]);
+        const dt = data[0];
+        setData(dt.Feedback);
       }
       if (!response.ok) {
         alert("Error while fetching", error);
@@ -25,14 +24,10 @@ const index = () => {
     }
     myfunc();
   }, []);
+
   const theme = useSelector((state) => state.theme.themedark);
   return (
-    <motion.div
-      className={theme ? `${classes.dark}` : `${classes.light}`}
-      // initial={{ y: 200 }}
-      // animate={{ y: 0, x: 0 }}
-      // transition={{ duration: 5, type: "spring" }}
-    >
+    <div className={theme ? `${classes.dark}` : `${classes.light}`}>
       <section className="header">
         <Header />
       </section>
@@ -43,15 +38,14 @@ const index = () => {
 
       <section id="education">
         <Education Edu={Data.Education} />
-        <Internship Int={Data.Internship} />
       </section>
       <section id="projects">
         <Project Pro={Pro} />
       </section>
       <section id="feedback">
-        <Feedback Foot={Data.Feedback} />
+        <Feedback Foot={Data} />
       </section>
-    </motion.div>
+    </div>
   );
 };
 

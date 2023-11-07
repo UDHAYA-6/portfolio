@@ -1,9 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./education.module.css";
-import { FaUserGraduate } from "react-icons/fa";
-import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-const Education = (props) => {
+import { SkeletonLoading } from "../Page Loader/skeleton";
+const Education = () => {
+  const [load, setLoad] = useState(false);
+  const [Data, setData] = useState([]);
+  useEffect(() => {
+    async function myfunc() {
+      setLoad(true);
+      const response = await fetch("api/data", { method: "GET" });
+      const data = await response.json();
+      if (response.ok) {
+        const dt = data[0].About;
+        setData(dt);
+      }
+      if (!response.ok) {
+        alert("Error while fetching", error);
+      }
+      setLoad(false);
+    }
+    myfunc();
+  }, []);
+
   const theme = useSelector((state) => state.theme.themedark);
   return (
     <div
@@ -13,12 +31,26 @@ const Education = (props) => {
           : `${classes.div} ${classes.light}`
       }
     >
-      <h1>
-        Education <FaUserGraduate />
-      </h1>
-      <div className={classes.paradiv}>
-        <p className={classes.para}>{props.Edu}</p>
-      </div>
+      {load && <SkeletonLoading />}
+      {Data && (
+        <>
+          {Data.map((item, index) => (
+            <div
+              key={index}
+              className={
+                index % 2 === 0
+                  ? `${classes.zigzagItem} ${classes.left}`
+                  : `${classes.zigzagItem} ${classes.right}`
+              }
+            >
+              <h1>{Object.keys(item)}</h1>
+              <div className={classes.paradiv}>
+                <p className={classes.para}>{Object.values(item)}</p>
+              </div>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 };

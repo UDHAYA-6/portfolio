@@ -1,9 +1,26 @@
 import classes from "./Main.module.css";
 import { motion } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { useSelector } from "react-redux";
+import { AboutLoad } from "../Page Loader/skeleton";
 import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
-const Main = (props) => {
+const Main = () => {
+  const [Data, setData] = useState("");
+  useEffect(() => {
+    async function myfunc() {
+      const response = await fetch("api/data", { method: "GET" });
+      const data = await response.json();
+      if (response.ok) {
+        const dt = data[0];
+        setData(dt.About_me);
+      }
+      if (!response.ok) {
+        alert("Error while fetching", error);
+      }
+    }
+
+    myfunc();
+  }, []);
   const theme = useSelector((state) => state.theme.themedark);
   return (
     <div
@@ -78,7 +95,7 @@ const Main = (props) => {
         <div className={classes.body}>
           <div>
             <p className={classes.first}>Udhaya Kumar</p>
-            {props.about}
+            {Data}
           </div>
         </div>
       </div>
