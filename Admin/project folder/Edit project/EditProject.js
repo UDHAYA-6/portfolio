@@ -17,7 +17,7 @@ const EditProject = (props) => {
     const Title = tit;
     const Description = des;
     const id = filtered.id;
-    const response = await fetch("/api/editProject", {
+    const response = await fetch(`/api/${props.value}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ Title, Description, id: id }),
@@ -32,7 +32,7 @@ const EditProject = (props) => {
       <form className={classes.form} onSubmit={EditProjectFrom}>
         <span onClick={props.close}>X</span>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <p>Edit project</p>
+          <p>{props.value}</p>
           <input
             required
             onChange={TitleChangeHandler}

@@ -3,21 +3,32 @@ import classes from "./page1.module.css";
 import Dashboard from "../Dash folder/Dashboard";
 import { FaShieldAlt } from "react-icons/fa";
 import About from "../About folder/about";
-import Eduacte from "../educatoin folder/educate";
-import Intern from "../Intern folder/Intern";
 import Project from "../project folder/project";
-import Foot from "../Footer folder/Foot";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/router";
+import Content from "../Page Content/Content";
 const Page1 = () => {
-  const router = useRouter();
+  const [Data, setData] = useState("");
+  useEffect(() => {
+    async function myfunc() {
+      const response = await fetch("api/data", { method: "GET" });
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data);
+        const dt = data[0];
+        setData(dt);
+      }
+      if (!response.ok) {
+        alert("Error while fetching", error);
+      }
+    }
+    myfunc();
+  }, []);
   const [nav, setNav] = useState({
     Dash: true,
-    About: false,
-    Education: false,
-    Internship: false,
+    About_me: false,
+    Feedback: false,
     Projects: false,
-    Footer: false,
+    Content: false,
   });
   const logOut = async () => {
     await signOut();
@@ -58,19 +69,22 @@ const Page1 = () => {
       </nav>
       <div className={classes.side}>
         <span onClick={() => changeNav("Dash")}>Dashboard</span>
-        <span onClick={() => changeNav("About")}>About_me</span>
-        <span onClick={() => changeNav("Education")}>Education</span>
-        <span onClick={() => changeNav("Internship")}>Internship</span>
-        <span onClick={() => changeNav("Projects")}>Projects</span>
-        <span onClick={() => changeNav("Footer")}>Footer</span>
+        {Object.keys(Data).map((item, index) => (
+          <span
+            key={index + 1}
+            onClick={() => changeNav(`${Object.keys(Data)[index + 1]}`)}
+          >
+            {Object.keys(Data)[index + 1]}
+          </span>
+        ))}
       </div>
+
       <div className={classes.body}>
         {nav.Dash && <Dashboard />}
-        {nav.About && <About />}
-        {nav.Education && <Eduacte />}
-        {nav.Internship && <Intern />}
+        {nav.About_me && <About value={"About_me"} />}
+        {nav.Content && <Content value={Data.Content} />}
         {nav.Projects && <Project />}
-        {nav.Footer && <Foot />}
+        {nav.Feedback && <About value={"Feedback"} />}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const Education = () => {
       const response = await fetch("api/data", { method: "GET" });
       const data = await response.json();
       if (response.ok) {
-        const dt = data[0].About;
+        const dt = data[0].Content;
         setData(dt);
       }
       if (!response.ok) {

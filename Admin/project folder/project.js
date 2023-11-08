@@ -12,7 +12,7 @@ const Project = () => {
   const [newPro, setnew] = useState(false);
   const [edit, setEdit] = useState(false);
   const [filtered, setfiltered] = useState([]);
-  const [status, setStatus] = useState(null); // Add a status state
+  const [status, setStatus] = useState(null);
 
   const fetcher = (url) => fetch(url).then((r) => r.json());
   const { data, error, isLoading } = useSWR("/api/data", fetcher);
@@ -42,9 +42,9 @@ const Project = () => {
       headers: { "Content-Type": "application/json" },
     });
     const jsonData = await response.json();
-    setStatus("success"); // Set status to success
+    setStatus("success");
     setTimeout(() => {
-      setStatus(null); // Clear the status after 2 seconds
+      setStatus(null);
     }, 2000);
     alert(jsonData.msg);
   };
@@ -92,8 +92,14 @@ const Project = () => {
         )}
       </div>
       <div className={classes.div}>
-        {newPro && <NewProject close={closeProject} />}
-        {edit && <EditProject data={filtered} close={closeProject} />}
+        {newPro && <NewProject close={closeProject} value={"newProject"} />}
+        {edit && (
+          <EditProject
+            data={filtered}
+            close={closeProject}
+            value={"editProject"}
+          />
+        )}
         {status === "success" && <StatusIndicator status="success" />}
       </div>
     </div>

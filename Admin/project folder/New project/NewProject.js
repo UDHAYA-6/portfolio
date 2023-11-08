@@ -10,7 +10,7 @@ const NewProject = (props) => {
     const Title = titleRef.current.value;
     const Description = descRef.current.value;
 
-    const response = await fetch("/api/newProject", {
+    const response = await fetch(`/api/${props.value}`, {
       method: "POST",
       body: JSON.stringify({ Title, Description }),
       headers: { "Content-Type": "application/json" },
@@ -30,7 +30,7 @@ const NewProject = (props) => {
       <form className={classes.form} onSubmit={AddProjectFrom}>
         <span onClick={props.close}>X</span>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <p>Add new project</p>
+          <p>Add {props.value}</p>
           <input
             ref={titleRef}
             required

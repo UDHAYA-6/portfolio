@@ -7,8 +7,8 @@ import { useSelector } from "react-redux";
 import Feedback from "@/Components/Form/feedback";
 import Education from "@/Components/Qualifications/eduaction";
 const index = () => {
-  const [Data, setData] = useState("");
   const [Pro, setPro] = useState([]);
+  const [Data, setData] = useState("");
   useEffect(() => {
     async function myfunc() {
       const response = await fetch("api/data", { method: "GET" });

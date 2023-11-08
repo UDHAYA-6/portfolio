@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     try {
       const client = await ConnectToDatabase();
       const db = client.db("Portfolio");
-      const filter = { _id: new ObjectId("652d0fcf876bc55275b7131a") };
+      const filter = { _id: new ObjectId("6549c572d69ae7aa4c95e477") };
 
       const update = {
         $pull: { Projects: { id: new ObjectId(id) } },

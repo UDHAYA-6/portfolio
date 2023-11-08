@@ -3,8 +3,9 @@ import classes from "../about.module.css";
 import useSWR from "swr";
 import StatusIndicator from "@/Components/Status tag/Status";
 
-const About = () => {
-  const [info, setInfo] = useState("No data in about");
+const About = ({ value }) => {
+  console.log(value);
+  const [info, setInfo] = useState(value);
   const [isEditing, setIsEditing] = useState(false);
   const [isSuccessVisible, setIsSuccessVisible] = useState(false);
 
@@ -13,7 +14,9 @@ const About = () => {
 
   useEffect(() => {
     if (data) {
-      setInfo(data[0].About_me);
+      const dt = data[0];
+      const dt1 = dt[value];
+      setInfo(dt1);
     }
     if (error) {
       alert("Error while fetching", error);
@@ -28,7 +31,7 @@ const About = () => {
     setIsEditing(false);
 
     try {
-      const response = await fetch("/api/About_me", {
+      const response = await fetch(`/api/${value}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +57,7 @@ const About = () => {
   return (
     <div>
       <center>
-        <h2 style={{ color: "maroon" }}>About</h2>
+        <h2 style={{ color: "maroon" }}>{value}</h2>
       </center>
 
       <div className={classes.div}>
