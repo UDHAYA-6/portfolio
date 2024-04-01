@@ -11,7 +11,7 @@ const page = () => {
   return (
     <>
       <HeroBullets />
-      {/* <Card /> */}
+      <Card />
       <Services />
       <Projects />
       <Skills />
