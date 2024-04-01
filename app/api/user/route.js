@@ -1,7 +1,6 @@
-"use server";
 import ConnectToDatabase from "@/mongoDB/mongodb";
 import { NextResponse } from "next/server";
-//const cl = await ConnectToDatabase();
+const cl = await ConnectToDatabase();
 // const client = await cl.connect();
 // const db = await client.db("Portfolio");
 // const collection = await db.collection("feedback");
