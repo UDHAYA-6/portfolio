@@ -2,9 +2,9 @@
 import { ConnectToDatabase } from "@/mongoDB/mongodb";
 import { NextResponse } from "next/server";
 const cl = await ConnectToDatabase();
-const client = await cl.connect();
-const db = await client.db("Portfolio");
-const collection = await db.collection("feedback");
+// const client = await cl.connect();
+// const db = await client.db("Portfolio");
+// const collection = await db.collection("feedback");
 // const date = new Date();
 // const dat = new Date(date);
 // const year = dat.getFullYear();
