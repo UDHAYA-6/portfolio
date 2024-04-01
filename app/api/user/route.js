@@ -1,4 +1,4 @@
-"use server";
+//"use server";
 import { ConnectToDatabase } from "@/mongoDB/mongodb";
 // import { NextResponse } from "next/server";
 // const cl = await ConnectToDatabase();
