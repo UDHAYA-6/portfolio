@@ -1,4 +1,4 @@
-import React from "react";
+"use server";
 export default async function submitFormDataToServer(FormData) {
   const response = await fetch("/api/user", {
     headers: { "content-Type": "application/json" },

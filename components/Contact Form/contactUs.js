@@ -29,24 +29,12 @@ export default function ContactUs() {
     event.preventDefault();
     console.log("Form submission working");
     const data = await submitFormDataToServer(FormData);
-    // const response = await fetch("/api/user", {
-    //   headers: { "content-Type": "application/json" },
-    //   body: JSON.stringify(FormData),
-    //   method: "POST",
-    // });
-    // console.log(response);
-    // const responseData = await response.json();
-    // console.log(responseData);
-    // if (response.status == 200) {
     alert(data.msg);
     setFormData({
       Name: "",
       Email: "",
       Message: "",
     });
-    // } else {
-
-    // }
   };
   return (
     <div className={classes.wrapper}>
