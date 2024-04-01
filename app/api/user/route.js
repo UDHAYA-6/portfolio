@@ -29,11 +29,11 @@
 //   }
 // }
 
-export async function GET() {
-  const data = await collection.find({}).toArray();
-  if (data) {
-    return NextResponse.json(data);
-  } else {
-    return NextResponse.json({ msg: "No such data found" });
-  }
-}
+// export async function GET() {
+//   const data = await collection.find({}).toArray();
+//   if (data) {
+//     return NextResponse.json(data);
+//   } else {
+//     return NextResponse.json({ msg: "No such data found" });
+//   }
+// }
