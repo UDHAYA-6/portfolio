@@ -1,5 +1,5 @@
 "use server";
-import { ConnectToDatabase } from "@/mongoDB/mongodb";
+import ConnectToDatabase from "@/mongoDB/mongodb";
 import { NextResponse } from "next/server";
 const cl = await ConnectToDatabase();
 // const client = await cl.connect();
