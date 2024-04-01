@@ -1,6 +1,5 @@
 import { MongoClient } from "mongodb";
-import { env } from "process";
-const uri = env.MONGODB_URI;
+const uri = process.env.MONGODB_URI;
 let CachedClient = null;
 async function ConnectToDatabase() {
   if (CachedClient) return CachedClient;
