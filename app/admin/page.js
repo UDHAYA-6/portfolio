@@ -9,7 +9,9 @@ import Paper from "@mui/material/Paper";
 
 const CustomizedTables = async () => {
   const data = async () => {
-    const response = await fetch(`${process.env.BASE_URL}/api/user`);
+    const response = await fetch(`${process.env.BASE_URL}/api/user`, {
+      cache: "no-store",
+    });
     const responseData = await response.json();
     if (response.status == 200) {
       return responseData;
