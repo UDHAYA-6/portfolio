@@ -27,9 +27,8 @@ export default function ContactUs() {
 
   const FormSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form submission working");
     const data = await submitFormDataToServer(FormData);
-    alert(data.msg);
+    alert(data);
     setFormData({
       Name: "",
       Email: "",
