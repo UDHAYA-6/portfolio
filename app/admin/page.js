@@ -1,47 +1,23 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
+"use server";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
-
-const CustomizedTables = () => {
-  const [Data, setData] = useState([]);
-  useEffect(() => {
-    async function getData() {
-      const response = await fetch("/api/user", { method: "GET" });
-      const responseData = await response.json();
-      if (response.status == 200) {
-        setData(responseData);
-      } else {
-        setData(responseData.msg);
-      }
+const CustomizedTables = async () => {
+  const data = async () => {
+    const response = await fetch(`${process.env.BASE_URL}/api/user`);
+    const responseData = await response.json();
+    if (response.status == 200) {
+      return responseData;
+    } else {
+      return responseData.msg;
     }
-    getData();
-  }, []);
-
+  };
+  const Data = await data();
   console.log(Data);
   return (
     <TableContainer component={Paper}>
@@ -52,30 +28,30 @@ const CustomizedTables = () => {
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>S.No</StyledTableCell>
-              <StyledTableCell align="left">Name</StyledTableCell>
-              <StyledTableCell align="left">Date</StyledTableCell>
-              <StyledTableCell align="left">Email</StyledTableCell>
-              <StyledTableCell align="left">Messages</StyledTableCell>
+              <TableCell>S.No</TableCell>
+              <TableCell align="left">Name</TableCell>
+              <TableCell align="left">Date</TableCell>
+              <TableCell align="left">Email</TableCell>
+              <TableCell align="left">Messages</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {Data.map((item, index) => (
-              <StyledTableRow key={index + 1}>
-                <StyledTableCell component="th" scope="row">
+              <TableRow key={index + 1}>
+                <TableCell component="th" scope="row">
                   {index + 1}
-                </StyledTableCell>
-                <StyledTableCell align="left">{item.Name}</StyledTableCell>
-                <StyledTableCell align="left">{item.Date}</StyledTableCell>
-                <StyledTableCell align="left">
+                </TableCell>
+                <TableCell align="left">{item.Name}</TableCell>
+                <TableCell align="left">{item.Date}</TableCell>
+                <TableCell align="left">
                   <a
                     href={`mailto:${item.Email}?subject= Thank you for contacting me`}
                   >
                     {item.Email}
                   </a>
-                </StyledTableCell>
-                <StyledTableCell align="left">{item.Message}</StyledTableCell>
-              </StyledTableRow>
+                </TableCell>
+                <TableCell align="left">{item.Message}</TableCell>
+              </TableRow>
             ))}
           </TableBody>
         </Table>

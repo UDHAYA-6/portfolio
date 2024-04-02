@@ -4,7 +4,6 @@ import {
   Text,
   SimpleGrid,
   UnstyledButton,
-  Anchor,
   Group,
   useMantineTheme,
 } from "@mantine/core";

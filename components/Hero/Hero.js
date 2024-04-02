@@ -20,7 +20,6 @@ const HeroBullets = () => {
       top: 3000,
       behavior: "smooth",
     });
-    props.passing();
   };
   return (
     <Container>

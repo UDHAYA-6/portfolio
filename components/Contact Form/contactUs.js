@@ -35,6 +35,7 @@ export default function ContactUs() {
       Message: "",
     });
   };
+
   return (
     <div className={classes.wrapper}>
       <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={50}>

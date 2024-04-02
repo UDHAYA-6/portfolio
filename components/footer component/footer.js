@@ -5,7 +5,6 @@ import {
   IconBrandLinkedin,
   IconBrandGithub,
 } from "@tabler/icons-react";
-import { MantineLogo } from "@mantinex/mantine-logo";
 import classes from "./footer.module.css";
 
 const data = [

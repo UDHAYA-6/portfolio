@@ -1,3 +1,4 @@
+"use server";
 import {
   Image,
   Text,
@@ -36,7 +37,7 @@ const data = [
   },
 ];
 
-export default function Services() {
+export default async function Services() {
   const items = data.map((item) => (
     <div className={classes.item} key={item.image}>
       <ThemeIcon

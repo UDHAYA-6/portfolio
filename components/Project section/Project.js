@@ -1,3 +1,4 @@
+"use server";
 import {
   SimpleGrid,
   Card,
@@ -31,7 +32,7 @@ const mockdata = [
   },
 ];
 
-export default function Projects() {
+export default async function Projects() {
   const cards = mockdata.map((article) => (
     <Card
       key={article.title}

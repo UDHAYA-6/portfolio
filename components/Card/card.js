@@ -1,4 +1,4 @@
-"use client";
+"use server";
 import { Text } from "@mantine/core";
 import classes from "./card.module.css";
 
@@ -22,7 +22,7 @@ const data = [
   },
 ];
 
-export default function Card() {
+export default async function Card() {
   const stats = data.map((stat) => (
     <div key={stat.title} className={classes.stat}>
       <Text className={classes.count}>{stat.stats}</Text>
