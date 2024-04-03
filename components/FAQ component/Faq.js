@@ -74,15 +74,15 @@ export default function FAQ() {
           </Grid.Col>
         </Grid> */}
 
-        <Grid id="faq-grid">
-          <Grid.Col>
+        <Grid id="faq-grid" gutter={50}>
+          <Grid.Col span={{ base: 12, md: 6 }}>
             <Image
               src={image.src}
               alt="Frequently Asked Questions"
               className={classes.img}
             />
           </Grid.Col>
-          <Grid.Col>
+          <Grid.Col span={{ base: 12, md: 5 }}>
             <Title order={2} ta="left" className={classes.title}>
               Frequently Asked Questions
             </Title>
