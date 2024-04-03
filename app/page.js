@@ -14,8 +14,8 @@ const page = () => {
       <Card />
       <Services />
       <Projects />
-      {/* <Skills />
-      <FAQ />
+      <Skills />
+      {/* <FAQ />
       <ContactUs />
       <FooterLinks /> */}
     </>
