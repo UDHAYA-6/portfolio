@@ -15,9 +15,9 @@ const page = () => {
       <Services />
       <Projects />
       <Skills />
-      <FAQ />
-      {/* <ContactUs />
-      <FooterLinks /> */}
+      {/* <FAQ /> */}
+      <ContactUs />
+      <FooterLinks />
     </>
   );
 };
