@@ -16,9 +16,9 @@ export default function FAQ() {
             />
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 6 }}>
-            <Title order={2} ta="left" className={classes.title}>
+            {/* <Title order={2} ta="left" className={classes.title}>
               Frequently Asked Questions
-            </Title>
+            </Title> */}
 
             {/* <Accordion
               chevronPosition="right"
