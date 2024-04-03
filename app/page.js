@@ -14,10 +14,10 @@ const page = () => {
       <Card />
       <Services />
       <Projects />
-      <Skills />
+      {/* <Skills />
       <FAQ />
       <ContactUs />
-      <FooterLinks />
+      <FooterLinks /> */}
     </>
   );
 };
