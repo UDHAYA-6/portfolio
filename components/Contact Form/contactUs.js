@@ -9,32 +9,16 @@ import {
   Button,
   Group,
 } from "@mantine/core";
-import React, { useState } from "react";
+import { useFormState } from "react-dom";
+import React from "react";
 import ContactIconsList from "./ContactIcons";
 import classes from "./ConatctUs.module.css";
 
 export default function ContactUs() {
-  const [FormData, setFormData] = useState({
-    Name: "",
-    Email: "",
-    Message: "",
-  });
-
-  const HandleChange = (event) => {
-    const { value, id } = event.target;
-    setFormData((preState) => ({ ...preState, [id]: value }));
-  };
-
-  const FormSubmit = async (event) => {
-    event.preventDefault();
-    const data = await submitFormDataToServer(FormData);
-    alert(data);
-    setFormData({
-      Name: "",
-      Email: "",
-      Message: "",
-    });
-  };
+  const [returnValue, action] = useFormState(submitFormDataToServer, undefined);
+  if (returnValue != undefined) {
+    alert(returnValue);
+  }
 
   return (
     <div className={classes.wrapper}>
@@ -47,37 +31,31 @@ export default function ContactUs() {
 
           <ContactIconsList />
         </div>
-        <form className={classes.form} onSubmit={FormSubmit}>
+        <form className={classes.form} action={action}>
           <TextInput
             required
-            id="Name"
+            name="Name"
             label="Name"
             placeholder="Your name"
             mt="md"
             classNames={{ input: classes.input, label: classes.inputLabel }}
-            value={FormData.Name}
-            onChange={HandleChange}
           />
           <TextInput
-            id="Email"
+            name="Email"
             label="Email"
             placeholder="your@gmail.com"
             required
             classNames={{ input: classes.input, label: classes.inputLabel }}
-            value={FormData.Email}
-            onChange={HandleChange}
           />
 
           <Textarea
-            id="Message"
+            name="Message"
             required
             label="Your message"
             placeholder="I want to connect..."
             minRows={4}
             mt="md"
             classNames={{ input: classes.input, label: classes.inputLabel }}
-            value={FormData.Message}
-            onChange={HandleChange}
           />
 
           <Group justify="flex-end" mt="md">

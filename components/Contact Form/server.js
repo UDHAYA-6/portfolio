@@ -1,5 +1,9 @@
 "use server";
-export default async function submitFormDataToServer(FormData) {
+export default async function submitFormDataToServer(prev, FormValues) {
+  const Name = FormValues.get("Name");
+  const Email = FormValues.get("Email");
+  const Message = FormValues.get("Message");
+  const FormData = { Name, Email, Message };
   const response = await fetch(`${process.env.BASE_URL}/api/user`, {
     headers: { "content-Type": "application/json" },
     body: JSON.stringify(FormData),
