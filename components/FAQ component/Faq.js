@@ -7,7 +7,7 @@ export default function FAQ() {
   return (
     <div className={classes.wrapper}>
       <Container size="lg">
-        <Grid id="faq-grid" gutter={50}>
+        {/* <Grid id="faq-grid" gutter={50}>
           <Grid.Col span={{ base: 12, md: 6 }}>
             <Image
               src={image.src}
@@ -16,11 +16,11 @@ export default function FAQ() {
             />
           </Grid.Col>
           <Grid.Col span={{ base: 12, md: 6 }}>
-            {/* <Title order={2} ta="left" className={classes.title}>
+            <Title order={2} ta="left" className={classes.title}>
               Frequently Asked Questions
-            </Title> */}
+            </Title>
 
-            {/* <Accordion
+            <Accordion
               chevronPosition="right"
               defaultValue="reset-password"
               variant="separated"
@@ -70,9 +70,9 @@ export default function FAQ() {
                   constant sources of motivation
                 </Accordion.Panel>
               </Accordion.Item>
-            </Accordion> */}
+            </Accordion>
           </Grid.Col>
-        </Grid>
+        </Grid> */}
       </Container>
     </div>
   );
