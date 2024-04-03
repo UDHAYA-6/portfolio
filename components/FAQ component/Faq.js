@@ -20,7 +20,7 @@ export default function FAQ() {
               Frequently Asked Questions
             </Title>
 
-            <Accordion
+            {/* <Accordion
               chevronPosition="right"
               defaultValue="reset-password"
               variant="separated"
@@ -70,7 +70,7 @@ export default function FAQ() {
                   constant sources of motivation
                 </Accordion.Panel>
               </Accordion.Item>
-            </Accordion>
+            </Accordion> */}
           </Grid.Col>
         </Grid>
       </Container>
