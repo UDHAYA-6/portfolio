@@ -1,7 +1,6 @@
 "use server";
 import { Text } from "@mantine/core";
 import classes from "./card.module.css";
-
 const data = [
   {
     title: "Percentage: 82%",

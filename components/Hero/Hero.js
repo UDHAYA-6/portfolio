@@ -10,6 +10,7 @@ import {
   ThemeIcon,
   rem,
 } from "@mantine/core";
+import SimpleSnackbar from "../Alter message/alert";
 import { IconCheck } from "@tabler/icons-react";
 import image from "@/public/image2.svg";
 import classes from "./Hero.module.css";
@@ -23,6 +24,7 @@ const HeroBullets = () => {
   };
   return (
     <Container>
+      <SimpleSnackbar />
       <div className={classes.inner}>
         <div className={classes.content}>
           <Title className={classes.title}>I'm Udhaya Kumar</Title>

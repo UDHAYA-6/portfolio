@@ -1,27 +1,54 @@
 "use client";
 import submitFormDataToServer from "@/components/Contact Form/server";
+import { CircularProgress } from "@mui/material";
+import SimpleSnackbars from "../Alter message/alert";
 import {
   Text,
   Title,
   SimpleGrid,
+  Button,
   TextInput,
   Textarea,
-  Button,
   Group,
 } from "@mantine/core";
-import { useFormState } from "react-dom";
-import React from "react";
+import React, { useState } from "react";
 import ContactIconsList from "./ContactIcons";
 import classes from "./ConatctUs.module.css";
-
 export default function ContactUs() {
-  const [returnValue, action] = useFormState(submitFormDataToServer, undefined);
-  if (returnValue != undefined) {
-    alert(returnValue);
-  }
+  const [snack, setsnack] = useState(false);
+  const [msg, setmsg] = useState("Message sent successfully");
+  const [status, setstatus] = useState("success");
+  const [values, setvalues] = useState({
+    Name: "",
+    Email: "",
+    Message: "",
+    Btn: "Send Message",
+  });
 
+  const FormAction = async () => {
+    const FormData = {
+      Name: values.Name,
+      Email: values.Email,
+      Message: values.Message,
+    };
+    const response = await submitFormDataToServer(FormData);
+    setvalues({
+      Name: "",
+      Email: "",
+      Message: "",
+      Btn: "Send Message",
+    });
+    if (response == 200) {
+      setsnack(true);
+    }
+  };
+  const ValuesChange = (event) => {
+    const { name, value } = event.target;
+    setvalues((prev) => ({ ...prev, [name]: value }));
+  };
   return (
     <div className={classes.wrapper}>
+      {snack && <SimpleSnackbars value={snack} msg={msg} status={status} />}
       <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={50}>
         <div>
           <Title className={classes.title}>Contact me</Title>
@@ -31,36 +58,53 @@ export default function ContactUs() {
 
           <ContactIconsList />
         </div>
-        <form className={classes.form} action={action}>
+        <form className={classes.form} action={FormAction}>
           <TextInput
             required
             name="Name"
             label="Name"
             placeholder="Your name"
-            mt="md"
+            value={values.Name}
+            onChange={ValuesChange}
             classNames={{ input: classes.input, label: classes.inputLabel }}
           />
+
           <TextInput
             name="Email"
             label="Email"
             placeholder="your@gmail.com"
             required
+            value={values.Email}
+            onChange={ValuesChange}
             classNames={{ input: classes.input, label: classes.inputLabel }}
           />
-
           <Textarea
             name="Message"
             required
             label="Your message"
             placeholder="I want to connect..."
             minRows={4}
-            mt="md"
+            value={values.Message}
+            onChange={ValuesChange}
             classNames={{ input: classes.input, label: classes.inputLabel }}
           />
-
           <Group justify="flex-end" mt="md">
-            <Button type="submit" className={classes.control}>
-              Send message
+            <Button
+              type="submit"
+              className={classes.control}
+              onClick={() =>
+                setvalues((prev) => ({
+                  ...prev,
+                  Btn: (
+                    <>
+                      sending...
+                      <CircularProgress size={22} color="inherit" />
+                    </>
+                  ),
+                }))
+              }
+            >
+              {values.Btn}
             </Button>
           </Group>
         </form>
