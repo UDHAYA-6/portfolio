@@ -27,7 +27,9 @@ const HeroBullets = () => {
       <SimpleSnackbar />
       <div className={classes.inner}>
         <div className={classes.content}>
-          <h1 className={classes.title}>I'm Udhaya Kumar</h1>
+          <h2 className={classes.title}>
+            I'm Udhaya Kumar <br></br>A Next and React Js developer
+          </h2>
           <Text c="dimmed" mt="md">
             Welcome to My Portfolio! If you're just curious about what I do,
             feel free to dive in.Explore my portfolio and discover how I
