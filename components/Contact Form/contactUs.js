@@ -4,7 +4,6 @@ import { CircularProgress } from "@mui/material";
 import SimpleSnackbars from "../Alter message/alert";
 import {
   Text,
-  Title,
   SimpleGrid,
   Button,
   TextInput,
@@ -51,7 +50,7 @@ export default function ContactUs() {
       {snack && <SimpleSnackbars value={snack} msg={msg} status={status} />}
       <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={50}>
         <div>
-          <Title className={classes.title}>Contact me</Title>
+          <h2 className={classes.title}>Contact me</h2>
           <Text className={classes.description} mt="sm" mb={30}>
             Leave your email and I will get back to you within 24 hours
           </Text>

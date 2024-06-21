@@ -12,7 +12,7 @@ import {
 } from "@mantine/core";
 import SimpleSnackbar from "../Alter message/alert";
 import { IconCheck } from "@tabler/icons-react";
-import image from "@/public/image2.svg";
+//import image from "@/public/image2.svg";
 import classes from "./Hero.module.css";
 
 const HeroBullets = () => {
@@ -27,7 +27,7 @@ const HeroBullets = () => {
       <SimpleSnackbar />
       <div className={classes.inner}>
         <div className={classes.content}>
-          <Title className={classes.title}>I'm Udhaya Kumar</Title>
+          <h1 className={classes.title}>I'm Udhaya Kumar</h1>
           <Text c="dimmed" mt="md">
             Welcome to My Portfolio! If you're just curious about what I do,
             feel free to dive in.Explore my portfolio and discover how I
@@ -71,7 +71,11 @@ const HeroBullets = () => {
             </Button>
           </Group>
         </div>
-        <Image src="/profile.jpg" className={classes.image} />
+        <Image
+          src="/profile.jpg"
+          className={classes.image}
+          alt="portfolio`s author"
+        />
       </div>
     </Container>
   );

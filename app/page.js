@@ -1,3 +1,4 @@
+"use server";
 import React from "react";
 import FooterLinks from "@/components/footer component/footer";
 import HeroBullets from "@/components/Hero/Hero";
@@ -7,7 +8,7 @@ import ContactUs from "@/components/Contact Form/contactUs";
 import Services from "@/components/Services/service";
 import Projects from "@/components/Project section/Project";
 import Skills from "@/components/Skills component/skills";
-const page = () => {
+const Page = async () => {
   return (
     <>
       <HeroBullets />
@@ -22,4 +23,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

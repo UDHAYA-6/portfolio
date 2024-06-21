@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private-page
+Allow: /
+
+Sitemap: https://yourwebsite.com/sitemap.xml
