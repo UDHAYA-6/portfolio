@@ -6,7 +6,7 @@ import HeaderMegaMenu from "@/components/Nav comoponent/navbar";
 export const metadata = {
   title: "Udhaya's portfolio",
   description:
-    "Explore Udhaya Kumar's portfolio, which showcases a wide range of web development projects and technical talents. Udhaya's skill in React js and Next js displays a strong desire to create interactive and user-friendly online apps. Detailed project case studies provide insight into unique ideas and proven experience in frontend development. View Udhaya's career experience and contact him to explore potential partnerships and prospects in web development.",
+    "Discover Udhaya Kumar's portfolio featuring diverse web development projects. Skilled in React and Next.js, he creates interactive, user-friendly apps. Detailed case studies highlight unique ideas and frontend expertise. Explore his career and potential partnerships.",
   keywords: "web development, portfolio, Udhaya, React js, Next.js",
   author: "Udhaya Kumar",
   image: "/profile.jpg",
