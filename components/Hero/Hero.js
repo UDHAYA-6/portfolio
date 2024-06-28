@@ -78,7 +78,7 @@ const HeroBullets = () => {
           width={350}
           height={350}
           className={classes.image}
-          priority
+          priority="true"
           alt="portfolio`s author"
         />
       </div>
