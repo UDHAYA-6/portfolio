@@ -11,6 +11,8 @@ export default function FAQ() {
           <Grid.Col span={{ base: 12, md: 5 }}>
             <Image
               src={image.src}
+              width={432.5}
+              height={432.5}
               alt="Frequently Asked Questions"
               className={classes.img}
             />
