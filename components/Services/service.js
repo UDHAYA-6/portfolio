@@ -46,7 +46,12 @@ export default async function Services() {
         size={60}
         radius="md"
       >
-        <Image src={IMAGES[item.image]} alt={item.title} />
+        <Image
+          src={IMAGES[item.image]}
+          alt={item.title}
+          width={38}
+          height={38}
+        />
       </ThemeIcon>
 
       <div>
