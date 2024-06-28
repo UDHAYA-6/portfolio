@@ -76,6 +76,7 @@ const HeroBullets = () => {
         <Image
           src="/profile.jpg"
           className={classes.image}
+          priority
           alt="portfolio`s author"
         />
       </div>
