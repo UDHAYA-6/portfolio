@@ -74,7 +74,7 @@ const HeroBullets = () => {
           </Group>
         </div>
         <Image
-          src="/profile.jpg"
+          src="/profile.webp"
           className={classes.image}
           priority
           alt="portfolio`s author"
