@@ -7,9 +7,6 @@ export default function SimpleSnackbars({ value, msg, status }) {
   const vertical = "top",
     horizontal = "center";
 
-  //   const handleClick = () => {
-  //     setopen(true);
-  //   };
   const handleClose = () => {
     setopen(false);
   };

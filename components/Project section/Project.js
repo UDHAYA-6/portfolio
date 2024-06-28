@@ -51,7 +51,12 @@ export default async function Projects() {
       onClick={() => openProject(article.link)}
     >
       <AspectRatio ratio={1920 / 1080}>
-        <Image src={article.image} alt={article.title} />
+        <Image
+          src={article.image}
+          alt={article.title}
+          height={238}
+          width={424}
+        />
       </AspectRatio>
       <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
         {article.date}
