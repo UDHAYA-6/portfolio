@@ -11,10 +11,10 @@ const data = [
   {
     title: "About",
     links: [
-      { label: "Features", link: "#" },
-      { label: "Pricing", link: "#" },
-      { label: "Support", link: "#" },
-      { label: "Forums", link: "#" },
+      { label: "Features", link: "/" },
+      { label: "Pricing", link: "/" },
+      { label: "Support", link: "/" },
+      { label: "Forums", link: "/" },
     ],
   },
   {
@@ -54,7 +54,8 @@ export default function FooterLinks() {
         key={linkIndex}
         className={classes.link}
         component="a"
-        onClick={() => OpenLink(link.link)}
+        href={link.link}
+        //  onClick={() => OpenLink(link.link)}
       >
         {link.label}
       </Text>
@@ -92,6 +93,7 @@ export default function FooterLinks() {
         >
           <ActionIcon size="lg" color="gray" variant="subtle">
             <IconBrandLinkedin
+              aria-label="linkedIn"
               onClick={() =>
                 OpenLink("https://www.linkedin.com/in/udhaya-kumar-developer")
               }
@@ -101,6 +103,7 @@ export default function FooterLinks() {
           </ActionIcon>
           <ActionIcon size="lg" color="gray" variant="subtle">
             <IconBrandGithub
+              aria-label="github"
               onClick={() => OpenLink("https://github.com/UDHAYA-6")}
               style={{ width: rem(18), height: rem(18) }}
               stroke={1.5}
@@ -108,6 +111,7 @@ export default function FooterLinks() {
           </ActionIcon>
           <ActionIcon size="lg" color="gray" variant="subtle">
             <IconBrandInstagram
+              aria-label="Instagram"
               onClick={() =>
                 OpenLink("https://www.instagram.com/udhay_kumar_official")
               }

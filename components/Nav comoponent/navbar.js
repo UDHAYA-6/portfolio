@@ -68,13 +68,13 @@ export default function HeaderMegaMenu(props) {
     }
 
     return (
-      <a
+      <p
         key={link.label}
         className={classes.link}
         onClick={() => Navigate(link.scroll)}
       >
         {link.label}
-      </a>
+      </p>
     );
   });
 
@@ -86,7 +86,11 @@ export default function HeaderMegaMenu(props) {
           <Group gap={2} visibleFrom="sm">
             {items}
           </Group>
-          <Button onClick={themeToggle} variant="transparent">
+          <Button
+            onClick={themeToggle}
+            variant="transparent"
+            aria-label="modeChange"
+          >
             <WbSunnyOutlinedIcon />
           </Button>
         </div>

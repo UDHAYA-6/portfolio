@@ -7,6 +7,7 @@ import {
   Container,
   AspectRatio,
 } from "@mantine/core";
+import Link from "next/link";
 import classes from "./project.module.css";
 
 const mockdata = [
@@ -36,11 +37,11 @@ const mockdata = [
   },
 ];
 
-const openProject = (Link) => {
-  window.open(Link);
-};
+// const openProject = (Link) => {
+//   window.open(Link);
+// };
 
-export default async function Projects() {
+export default function Projects() {
   const cards = mockdata.map((article) => (
     <Card
       key={article.title}
@@ -48,7 +49,8 @@ export default async function Projects() {
       radius="md"
       component="a"
       className={classes.card}
-      onClick={() => openProject(article.link)}
+      href={article.link}
+      //onClick={() => openProject(article.link)}
     >
       <AspectRatio ratio={1920 / 1080}>
         <Image
