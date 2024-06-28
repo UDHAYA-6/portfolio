@@ -55,7 +55,6 @@ export default function FooterLinks() {
         className={classes.link}
         component="a"
         href={link.link}
-        //  onClick={() => OpenLink(link.link)}
       >
         {link.label}
       </Text>

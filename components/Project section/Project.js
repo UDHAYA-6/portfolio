@@ -37,10 +37,6 @@ const mockdata = [
   },
 ];
 
-// const openProject = (Link) => {
-//   window.open(Link);
-// };
-
 export default function Projects() {
   const cards = mockdata.map((article) => (
     <Card
@@ -50,7 +46,6 @@ export default function Projects() {
       component="a"
       className={classes.card}
       href={article.link}
-      //onClick={() => openProject(article.link)}
     >
       <AspectRatio ratio={1920 / 1080}>
         <Image
