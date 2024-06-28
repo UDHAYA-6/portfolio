@@ -1,5 +1,9 @@
+# *
 User-agent: *
-Disallow: /private-page
 Allow: /
 
-Sitemap: https://yourwebsite.com/sitemap.xml
+# Host
+Host: https://your-site-url.com
+
+# Sitemaps
+Sitemap: https://your-site-url.com/sitemap.xml
